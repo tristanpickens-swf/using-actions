@@ -1,0 +1,2 @@
+# Force all text files to use LF (standard for Go and Docker)
+* text=auto eol=lf
