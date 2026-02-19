@@ -27,3 +27,11 @@ curl -X POST http://localhost:8080/contacts \
 ```bash
 curl http://localhost:8080/contacts
 ```
+
+**Running tests**
+
+Run the unit tests added for storage and handlers:
+
+```bash
+go test ./...
+```
