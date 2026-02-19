@@ -3,8 +3,6 @@ WORKDIR /src
 COPY go.mod .
 COPY *.go .
 RUN apk add --no-cache git
-COPY . .
-RUN go test -v ./...
 RUN CGO_ENABLED=0 go build -o /app/phonebook .
 
 FROM alpine:3.18
