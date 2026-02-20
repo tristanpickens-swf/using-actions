@@ -30,7 +30,7 @@ jobs:
           PORT: 8080
 
       - name: Wait for App to be ready
-        run: sleep 2
+        run: sleep 10
       
       - name: Run k6 Load Test
         uses: grafana/k6-action@v0.3.1
