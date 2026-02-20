@@ -35,3 +35,5 @@ Run the unit tests added for storage and handlers:
 ```bash
 go test ./...
 ```
+
+To run load testing go to localhost:8089
