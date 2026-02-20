@@ -21,6 +21,23 @@ jobs:
       - name: Run Go Tests
         run: go test -v ./...
 
+      - name: Build App for Load Testing
+        run: go build -o phonebook .
+
+      - name: Start App
+        run: ./phonebook &
+        env:
+          PORT: 8080
+
+      - name: Wait for App to be ready
+        run: sleep 2
+      
+      - name: Run k6 Load Test
+        uses: grafana/k6-action@v0.3.1
+        with:
+          filename: ./k6/load-test.js
+          flags: --env TARGET_URL=http://localhost:8080
+
       - name: Log in to Docker Hub
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
