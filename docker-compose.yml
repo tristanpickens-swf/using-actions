@@ -13,3 +13,11 @@ services:
     volumes:
       - ./locust:/locust
     command: -f /locust/locustfile.py --host=http://app:8080
+
+  k6:
+    image: grafana/k6
+    volumes:
+      - ./k6:/k6
+    command: run /k6/load-test.js
+    depends_on:
+        - app
